@@ -3,7 +3,6 @@ using AirReservationApi.Infra.Database;
 using AirReservationApi.Infra.Logging;
 using AirReservationApi.Infra.Repositiory;
 using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,13 +12,6 @@ var config = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json", true, true)
     .Build();
-
-builder.Services.AddControllersWithViews()
-                .AddNewtonsoftJson(options =>
-                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft
-                .Json.ReferenceLoopHandling.Ignore)
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver
-                = new DefaultContractResolver());
 
 builder.Services.AddCors(options =>
     {
