@@ -21,6 +21,9 @@ export class Navigation extends Component{
                     <NavLink className="d-inline p-2 bg-dark text-white" to="/searchAirReservation">
                         Search Air reservation
                     </NavLink>
+                    <NavLink className="d-inline p-2 bg-dark text-white" to="/searchAirReservationById">
+                        Search Air reservation by id
+                    </NavLink>
                     <NavLink className="d-inline p-2 bg-dark text-white" to="/airports">
                         Airports
                     </NavLink>         
