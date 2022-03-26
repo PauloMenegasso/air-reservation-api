@@ -41,8 +41,12 @@ namespace AirReservationApi.Controllers
         }
 
         [HttpGet("GetOne/{id}")]
-        public async Task<AirReservation> GetOne([FromRoute] int id)
-            => await this.airReservationHandler.GetAnAirReservation(id);
+        public async Task<IEnumerable<AirReservation>> GetOne([FromRoute] int id)
+        {
+            var airReservation = await this.airReservationHandler.GetAnAirReservation(id);
+            return new List<AirReservation> { airReservation };
+        }
+
 
         [HttpGet("GetWithFilter/")]
         public async Task<IEnumerable<AirReservation>> GetMany([FromQuery]

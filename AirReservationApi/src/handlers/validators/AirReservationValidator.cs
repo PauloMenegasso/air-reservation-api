@@ -25,10 +25,14 @@ namespace AirReservationApi.handlers.validators
                 .NotEmpty();
 
             this.RuleFor(ar => ar.FlightNumber)
-                .NotEmpty();
+                .NotEmpty()
+                .GreaterThan(0);
 
             this.RuleFor(ar => ar.NumberOfAdultPassagers)
                 .GreaterThan(0);
+
+            this.RuleFor(ar => ar.NumberOfChieldPassagers)
+                .GreaterThanOrEqualTo(0);
         }
     }
 }
